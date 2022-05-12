@@ -15,6 +15,7 @@ class _EditDiaryPageState extends State<EditDiaryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade300,
       appBar: AppBar(
         title: const Text("編集"),
       ),
