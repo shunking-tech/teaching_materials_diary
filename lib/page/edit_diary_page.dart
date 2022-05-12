@@ -10,6 +10,7 @@ class EditDiaryPage extends StatefulWidget {
 
 class _EditDiaryPageState extends State<EditDiaryPage> {
   DateTime date = DateTime.now();
+  double satisfactionLevel = 0.0;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +49,41 @@ class _EditDiaryPageState extends State<EditDiaryPage> {
                     primary: Colors.grey
                 ),
               ),
-            )
+            ),
+
+            Card(
+              margin: const EdgeInsets.only(top: 16),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    Stack(
+                      children: [
+                        const Align(alignment: Alignment.centerLeft, child: Text("1日の満足度")),
+                        Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            satisfactionLevel.toInt().toString() + "%",
+                            style: const TextStyle(fontSize: 24.0,),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Slider(
+                      label: satisfactionLevel.toInt().toString() + "%",
+                      min: 0,
+                      max: 100,
+                      value: satisfactionLevel,
+                      divisions: 20,
+                      onChanged: (value) {
+                        satisfactionLevel = value;
+                        setState(() {});
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
